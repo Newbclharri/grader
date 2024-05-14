@@ -2,6 +2,10 @@ function testcreatStatSheet(){
   createStatSheet({section: "A", threshold: 10 , max: 0, accuracy: true});
 }
 
+function testClaspPush(){
+  console.log("my first clasp push")
+}
+
 function test(settings){
   console.log("Settings before processing: ", settings)
   const propNames = ["section", "threshold", "count"];
