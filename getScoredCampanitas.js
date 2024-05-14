@@ -27,7 +27,7 @@ function getScoredCampanitas(settings = {}) {
       const campanita = sh.getName();
       const numRowsHeader = 1;
       const rowStart = numRowsHeader + 1;
-      const colStart = 2;
+      const colStart = getTimestampColumn(sheet);
       const numRows = sh.getLastRow() - numRowsHeader;
       const numCols = sh.getLastColumn();
       const rangeHeader = sh.getRange(1,colStart,1,numCols);
@@ -53,11 +53,12 @@ function getScoredCampanitas(settings = {}) {
           }
           //if student data exists in object
           if(currentStudent){
-            const question = questions[column]
-            currentStudent[campanita] = null;
+            const question = questions[column];
+            currentStudent[campanita] = {}
+            currentStudent[campanita].score = null;
             //if no short answer questions available, assign grade of 100
             if(countShortAnswer < 1){
-              currentStudent[campanita] = 100
+              currentStudent[campanita].score = 100
             //if the question is a short answer question, qualify response based on length of answer
             }else if(isShortAnswer(question)){
               if(!response || response.length < threshold){
@@ -65,13 +66,11 @@ function getScoredCampanitas(settings = {}) {
                 countBadResponses ++;                
               }              
             }
-          }
-          if(currentStudent){
             //bad reponses greater than allowed will result in a 0 score
             if(countBadResponses > max){
-              currentStudent[campanita] = 0;                                   
+              currentStudent[campanita].score = 0;                                   
             }else{
-              currentStudent[campanita] = 100;
+              currentStudent[campanita].score = 100;
             }
           }
         })               
@@ -89,11 +88,12 @@ function getScoredCampanitas(settings = {}) {
     let score = 0, count = 0
     for(campanita of campanitas){
       if(student[campanita]){
-        score += student[campanita];
+        score += student[campanita].score;
         count ++;
       //assign null value to incomplete form responses
       }else{
-        student[campanita] = null;
+        student[campanita] = {};
+        student[campanita].score = null;
       }
     }
     //console.log(student.name, " ",score/campanitas.length, " count: ", count)

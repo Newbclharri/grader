@@ -7,8 +7,10 @@
  * 
  */
 
-function sortColumns(sheetToSort,columns = [2,3], numRowsHeader = 1){
-  const ss = SpreadsheetApp.getActive();
+function sortColumns(sheetToSort,columns = [2,3], options = {url: null, numRowsHeader: 1}){
+  let {url, numRowsHeader} = options;
+  numRowsHeader = options.numRowsHeader || 1;
+  const ss = url ? SpreadsheetApp.openByUrl(url) : SpreadsheetApp.getActive();
   let sh;
   if(typeof sheetToSort === "string"){
     sh = ss.getSheetByName(sheetToSort);

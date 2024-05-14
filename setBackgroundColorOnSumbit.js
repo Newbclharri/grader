@@ -26,12 +26,12 @@ function setBackgroundColorOnSubmit(threshold = 10, max = 0, numRowsHeader = 1) 
       //Iterate over all student responses in the form submission sheet
       studentResponses.forEach((response) =>{
         let countBadResponses = 0;
-        response.forEach( (string,column) =>{
+        response.forEach( (value,column) =>{
           const question = questions[column];
           let range = sh.getRange(lastRow, column + colStart)
           //check if the question is a short answer question
-          if(isMultipleChoice(question)){
-              if(string !== answers[column]){
+          if(isMultipleChoice(question) && value !== ""){
+              if(value !== answers[column]){
                 // sh.getRange(row + rowStart, column + colStart,1,numCols)
                 //   .clearFormat();
                 //flag response by setting background color of targeted cell
@@ -46,7 +46,7 @@ function setBackgroundColorOnSubmit(threshold = 10, max = 0, numRowsHeader = 1) 
               }    
             }
           if(isShortAnswer(question)){
-            if(string.length < threshold){
+            if(value.length < threshold){
               countBadResponses ++;
               sh.getRange(lastRow,colStart,1,numCols)
                 .clearFormat();

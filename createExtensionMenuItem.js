@@ -4,6 +4,9 @@ function createExtensionMenuItem(){
     const activeSh = SpreadsheetApp.getActive().getActiveSheet();
     uI
       .createAddonMenu()
+        .addItem('Set Triggers','setTriggers')
+        .addItem('Delete Triggers', 'deleteTriggers')
+        .addSeparator()
         .addItem('Check', 'setBackgroundColor')
         .addSeparator()
         .addItem('Grade', 'createReportFromMenu')
@@ -17,8 +20,10 @@ function createExtensionMenuItem(){
 }
 
 function createReportFromMenu(){
+  const section = "A"
   try{
-    createStatSheet({section: "A", threshold: 10, max: 0, accuracy: true})
+    createStatSheet({section, threshold: 10, max: 0, accuracy: true});
+    exportWeeklyReport2(section, "https://docs.google.com/spreadsheets/d/1hVoTabVT2M66bdi5Z-1Xh6pYQqEysn0FSiMmY57Sb4s/edit#gid=1049976611")
   }catch(err){
     console.log(err)
 
@@ -31,3 +36,4 @@ function createReportFromMenu(){
 function insertCsvReportsFromMenu(){
   insertCsvReadySheets()
 }
+

@@ -12,8 +12,9 @@ function isStatSheet(sheet) {
     if(!isCampanita(sheet)){
       const sheetName = sheet.getName().toLowerCase();
       const separatedStrings = sheetName.split(" ");
-      if(separatedStrings.includes("weekly"));
-      return true;
+      if(separatedStrings.includes("weekly")){
+        return true;
+      }
     };
     return false;
     

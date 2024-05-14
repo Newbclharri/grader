@@ -34,7 +34,7 @@ function setBackgroundColor(sheet, threshold = 10, max = 0, checkMC = true) {
       student.forEach((response, column)=>{
         const question = questions[column];
         if(checkMC){
-          if(isMultipleChoice(question)){
+          if(isMultipleChoice(question) && response !== ""){
             if(response !== answers[column]){
               // sh.getRange(row + rowStart, column + colStart,1,numCols)
               //   .clearFormat();
@@ -44,7 +44,7 @@ function setBackgroundColor(sheet, threshold = 10, max = 0, checkMC = true) {
                 .setFontColor(fontColor)
                 .setFontWeight(fontWeight)
               countBadResponses++;
-            }else if(response === answers[column]){
+            }else{
               sh.getRange(row + rowStart, column + colStart)
                 .clearFormat();
             }    

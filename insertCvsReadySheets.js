@@ -7,18 +7,23 @@ function insertCsvReadySheets(...periods) {
   //if a CSV ready report by class period doesn't exist then create and insert one
   //there should be a csv ready report for each period found in Weekly Stats
   try{
+    //loop through all periods on active Spreadsheet and create or overwrite corresponding CSV tab
     for(let period of periods){
       const lastSheet = ss.getSheets().length;
       const csvSheetName = prefix + period + " " + postfix
       let csvSheet = ss.getSheetByName(csvSheetName);
+
+      //insert class period CSV if it does not exist on the active Spreadsheet
       if(!csvSheet){
         ss.insertSheet(csvSheetName,lastSheet);
-        csvSheet = ss.getSheetByName(csvSheetName)
-        setcsvSheetHeaders(csvSheet)
-        setcsvClassData(csvSheet, period)
-        csvSheet.setFrozenRows(1);
-        csvSheet.sort(2);
       }
+      csvSheet = ss.getSheetByName(csvSheetName)
+      //overwrite existing data
+      csvSheet.getDataRange().clear();
+      setcsvSheetHeaders(csvSheet)
+      setcsvClassData(csvSheet, period)
+      csvSheet.setFrozenRows(1);
+      csvSheet.sort(2);
     }
   }catch(err){
     console.log("insertcsvReadySheets: ", err);
@@ -37,14 +42,18 @@ function setcsvSheetHeaders(csvSheet){
 }
 
 function setcsvClassData(csvSheet, classPeriod){
-  try{
+  try{    
     const studentData = getAccuratelyScoredCampanitas({period: classPeriod});
-    const rows = []
+    const rows = [];
+
+    //populate rows ror each student in student data object
     for(let id in studentData){
       const student = studentData[id]
       const {name, average} = student
       rows.push([id,name,average])
     }
+
+    //set target sheet rows for each student 
     rows.forEach((row,index) => {
       const numRowsHeader = 1
       const rowStart = numRowsHeader + 1

@@ -48,10 +48,6 @@ function exportWeeklyReport(url) {
   
 }
 
-function testExport(){
-  exportWeeklyReport("https://docs.google.com/spreadsheets/d/1NMKiXx4NkHe9j_tw5CfQ1ltBQXwTCRllQKVbhMN1QU4/edit#gid=1764747354")
-}
-
 /**
  * 
  */

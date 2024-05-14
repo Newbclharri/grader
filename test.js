@@ -1,33 +1,17 @@
+function testExport2(){
+  exportWeeklyReport2("C", "https://docs.google.com/spreadsheets/d/1hVoTabVT2M66bdi5Z-1Xh6pYQqEysn0FSiMmY57Sb4s/edit?usp=sharing")
+}
 function testcreatStatSheet(){
-  createStatSheet({section: "A", threshold: 10 , max: 0, accuracy: true});
+  createStatSheet({section: getSection(), threshold: 10 , max: 0, accuracy: true});
 }
 
-function testClaspPush(){
-  console.log("my first clasp push")
+function testHeader(){
+  const ss = SpreadsheetApp.openByUrl("https://docs.google.com/spreadsheets/d/1hVoTabVT2M66bdi5Z-1Xh6pYQqEysn0FSiMmY57Sb4s/edit#gid=185006322");
+  const sh = ss.getSheetByName("Jan. 08 - Jan. 12, 2024");
+  const header = sh.getRange(1,1,1,sh.getLastColumn());
+  console.log(header)
 }
 
-function test(settings){
-  console.log("Settings before processing: ", settings)
-  const propNames = ["section", "threshold", "count"];
-  const propValues = [null, 7, 1];
-
-  for(let i = 0; i < propNames.length; i++){
-    let name = propNames[i];
-    let value = propValues[i]
-    if(!settings[name]){
-      settings[name] = value;
-    }
-  }
-
-  console.log("Setting after processing:", settings)
-}
-
-function getInfo(settings = {}){
-  settings.group = settings.group || "A";
-  settings.period = settings.period || 2;
-  console.log(settings)
-}
-
-function runGetInfo(){
-  getInfo({group: "B"})
+function testGetSection(){
+  console.log(getSection())
 }

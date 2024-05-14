@@ -8,10 +8,11 @@
  * @return {object} sectionData
  */
 function getSectionStudentData(string) {
+  const section = string.toUpperCase();
   const allStudentData = ImportExportIDNumbers.getAllStudentData();
   let pA, pB, pC;
   let sectionData = {}
-  switch(string){
+  switch(section){
     case "A":
       pA = 2; pB = 3; pC = 4;
       for(iD in allStudentData){

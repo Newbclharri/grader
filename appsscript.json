@@ -1,20 +1,25 @@
 {
   "timeZone": "America/Chicago",
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8",
   "dependencies": {
     "libraries": [
       {
         "userSymbol": "ImportExportIDNumbers",
         "libraryId": "1s5ycvdPXgBQ_6InLaP8ukYKIh4r3vyzcYaySgzt6KCSQ2R30DiWYOhNg",
-        "version": "2"
+        "version": "0",
+        "developmentMode": true
       },
       {
-        "userSymbol": "HandleCampanitas",
+        "userSymbol": "SombraStuData",
+        "libraryId": "15GK9FueHNraWmM6PUnjEYYEZcN9hApIC2Doh7FRrZQbH_LT5a84jMmDE",
         "version": "0",
-        "libraryId": "1-x4GS7Og9-j5ZIOAQD5W9fGgrXWqOrq_Kr5pVCp1pdKEu9n2DiJfSUsY",
         "developmentMode": true
       }
     ]
   },
-  "exceptionLogging": "STACKDRIVER",
-  "runtimeVersion": "V8"
+  "webapp": {
+    "executeAs": "USER_DEPLOYING",
+    "access": "ANYONE_ANONYMOUS"
+  }
 }
