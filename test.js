@@ -1,3 +1,16 @@
+function testSetValues(){
+  const testSheet = SpreadsheetApp.getActive().getSheetByName("test");
+  const rows = [
+    ["james", 3, 1234567],
+    ["jane", 4, 1234568],
+    ["justin", 5, 1234569]
+  ];
+  testSheet
+    .getRange(1,1,rows.length, rows[0].length)
+    .setValues(rows)
+
+}
+
 function testExport2(){
   exportWeeklyReport2("C", "https://docs.google.com/spreadsheets/d/1hVoTabVT2M66bdi5Z-1Xh6pYQqEysn0FSiMmY57Sb4s/edit?usp=sharing")
 }

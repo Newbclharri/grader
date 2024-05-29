@@ -5,7 +5,7 @@
  */
 function initialize(section, url) { 
   if(hasAFormResponseSheet() && hasADefaultSheet()) removeDefaultSheets();
-  createStatSheet({section, threshold: 10 , max: 0, accuracy: true});
+  createStatSheet({section, max: 0, accuracy: true});
   exportWeeklyReport2(section,url)
 
 }
