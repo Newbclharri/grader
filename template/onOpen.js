@@ -1,0 +1,3 @@
+function onOpen() {
+  HandleCampanitas.onOpen();
+}

@@ -2,7 +2,7 @@
 
 ## Getting Started:
 1. This interfaces with a local machine and a remote google apps-script project
-2. To push and pull code from the remote apps script project to the local machine, it's highly recommended to download and install the clasp CLI (Command Line Interface) for your machine's operating system (OS).
+2. To push and pull code from the remote apps script project to the local machine, it's highly recommended to download and install the Google / Clasp CLI (Command Line Interface) for your machine's operating system (OS).
 3. There's a link to the example template below. Make a copy.
 
 ## Summary
@@ -16,5 +16,5 @@
 |Technologies |Google Apps Script, Google Clasp, JavaScript, Google Cloud, Google Sheets, Github |
 
 ## Helpful Resources:
-- [google clasp installation notes](https://www.npmjs.com/package/@google/clasp)
+- [google clasp quick start](https://www.npmjs.com/package/@google/clasp)
 - [google clasp documentation](https://developers.google.com/apps-script/guides/clasp)

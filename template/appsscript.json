@@ -1,0 +1,13 @@
+{
+  "timeZone": "America/Chicago",
+  "dependencies": {
+    "libraries": [{
+      "userSymbol": "HandleCampanitas",
+      "libraryId": "1-x4GS7Og9-j5ZIOAQD5W9fGgrXWqOrq_Kr5pVCp1pdKEu9n2DiJfSUsY",
+      "version": "0",
+      "developmentMode": true
+    }]
+  },
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8"
+}

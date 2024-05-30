@@ -1,0 +1,3 @@
+function deleteTriggers(){
+  HandleCampanitas.deleteTriggers();
+}
