@@ -1,7 +1,7 @@
 # Google Sheets Grader App
 
 ## Getting Started:
-1. This interfaces with a local machine and a remote google apps-script project
+1. This setup interfaces with a local machine and a remote google apps-script project
 2. To push and pull code from the remote apps script project to the local machine, it's highly recommended to download and install the Google / Clasp CLI (Command Line Interface) for your machine's operating system (OS).
 3. There's a link to the example template below. Make a copy.
 
