@@ -15,6 +15,20 @@
 |Repo | https://github.com/Newbclharri/grader |
 |Technologies |Google Apps Script, Google Clasp, JavaScript, Google Cloud, Google Sheets, Github |
 
+## Features
+- Auto detects form submission sheet
+- Styles each form submission sheet
+- Dates each form submission sheet
+- Color codes incorrect responses
+- Grades/Averages all response forms in the spreadsheet
+- Creates CSV ready tabs for each class period to upload to Powerteacher
+- Exports student friendly report on a remote google spreadsheet
+
 ## Helpful Resources:
 - [google clasp quick start](https://www.npmjs.com/package/@google/clasp)
 - [google clasp documentation](https://developers.google.com/apps-script/guides/clasp)
+
+## Additional Notes
+1. /src/app
+    - contains the main project code that executes all functions
+2. /src/template

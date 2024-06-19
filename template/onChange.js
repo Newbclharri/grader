@@ -1,3 +1,0 @@
-function onChange() {
-  //HandleCampanitas.insertCountSubmissionsColumn();
-}

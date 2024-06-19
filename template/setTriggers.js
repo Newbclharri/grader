@@ -1,3 +1,0 @@
-function setTriggers(){
-  HandleCampanitas.setTriggers();
-}

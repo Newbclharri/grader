@@ -1,2 +1,10 @@
-app/.clasp.json
-app/.claspignore
+# Ignores clasp files
+src/appsscript.json
+.clasp.json
+.claspignore
+
+# Ignores node_modules
+node_modules
+
+#Ignore non-essential source files
+src/fetchAllStudentData.js
